@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Download YouTube video thumbnails in multiple resolutions instantly">
+    <meta name="keywords" content="youtube, thumbnail, downloader, video, image">
+    <title>YouTube Thumbnail Downloader</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/>
+                    <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/>
+                </svg>
+                <h1>YouTube Thumbnail Downloader</h1>
+            </div>
+            <p class="subtitle">Download high-quality thumbnails from any YouTube video</p>
+        </header>
+
+        <main>
+            <div class="input-section">
+                <div class="input-wrapper">
+                    <input
+                        type="text"
+                        id="videoUrl"
+                        placeholder="Paste YouTube video URL here..."
+                        aria-label="YouTube video URL"
+                    >
+                    <button id="fetchBtn" class="fetch-btn">
+                        <span>Get Thumbnail</span>
+                    </button>
+                </div>
+                <p class="hint">Supports youtube.com and youtu.be links</p>
+            </div>
+
+            <div id="errorMessage" class="error-message" style="display: none;"></div>
+
+            <div id="resultsSection" class="results-section" style="display: none;">
+                <div class="preview-section">
+                    <h2>Preview</h2>
+                    <div class="thumbnail-preview">
+                        <img id="thumbnailPreview" src="" alt="Video thumbnail">
+                    </div>
+                </div>
+
+                <div class="download-section">
+                    <h2>Available Resolutions</h2>
+                    <div class="resolution-grid">
+                        <div class="resolution-card" data-quality="maxresdefault">
+                            <div class="resolution-info">
+                                <h3>Maximum Resolution</h3>
+                                <p class="resolution-size">1280x720</p>
+                                <p class="resolution-note">Best quality available</p>
+                            </div>
+                            <button class="download-btn" data-quality="maxresdefault">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                    <polyline points="7 10 12 15 17 10"/>
+                                    <line x1="12" y1="15" x2="12" y2="3"/>
+                                </svg>
+                                Download
+                            </button>
+                        </div>
+
+                        <div class="resolution-card" data-quality="sddefault">
+                            <div class="resolution-info">
+                                <h3>Standard Definition</h3>
+                                <p class="resolution-size">640x480</p>
+                                <p class="resolution-note">Good for most uses</p>
+                            </div>
+                            <button class="download-btn" data-quality="sddefault">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                    <polyline points="7 10 12 15 17 10"/>
+                                    <line x1="12" y1="15" x2="12" y2="3"/>
+                                </svg>
+                                Download
+                            </button>
+                        </div>
+
+                        <div class="resolution-card" data-quality="hqdefault">
+                            <div class="resolution-info">
+                                <h3>High Quality</h3>
+                                <p class="resolution-size">480x360</p>
+                                <p class="resolution-note">Balanced size & quality</p>
+                            </div>
+                            <button class="download-btn" data-quality="hqdefault">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                    <polyline points="7 10 12 15 17 10"/>
+                                    <line x1="12" y1="15" x2="12" y2="3"/>
+                                </svg>
+                                Download
+                            </button>
+                        </div>
+
+                        <div class="resolution-card" data-quality="mqdefault">
+                            <div class="resolution-info">
+                                <h3>Medium Quality</h3>
+                                <p class="resolution-size">320x180</p>
+                                <p class="resolution-note">Smaller file size</p>
+                            </div>
+                            <button class="download-btn" data-quality="mqdefault">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                    <polyline points="7 10 12 15 17 10"/>
+                                    <line x1="12" y1="15" x2="12" y2="3"/>
+                                </svg>
+                                Download
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Made with ❤️ for the community</p>
+            <p class="disclaimer">This tool uses publicly available YouTube thumbnail URLs. No API keys required.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

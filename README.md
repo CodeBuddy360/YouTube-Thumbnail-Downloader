@@ -37,7 +37,7 @@ git clone https://github.com/CodeBuddy360/YouTube-Thumbnail-Downloader.git
 
 2. Navigate to the project directory:
 ```bash
-cd youtube-thumbnail-downloader
+cd YouTube-Thumbnail-Downloader
 ```
 
 3. Open `index.html` in your web browser:
